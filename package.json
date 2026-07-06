@@ -1,0 +1,12 @@
+{
+  "name": "sushi-god-typing-battle",
+  "version": "1.0.0",
+  "description": "寿司打×ゴッドフィールド風 マルチプレイタイピングバトル",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "ws": "^8.21.0"
+  }
+}

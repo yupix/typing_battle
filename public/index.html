@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🍣 スシゴッド・タイピングバトル ⚔️</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <h1><span class="h1-mark">鮨</span>スシゴッド・タイピングバトル</h1>
+</header>
+
+<!-- ロビー -->
+<section id="screen-lobby" class="screen">
+  <div class="panel">
+    <h2>入店受付</h2>
+    <p id="invite-note" class="note hidden"></p>
+    <label>なまえ</label>
+    <input id="name-input" maxlength="12" placeholder="れい: すしまる" autocomplete="off">
+    <div class="lobby-actions">
+      <button id="btn-create" class="btn-main">部屋を作る</button>
+      <div class="join-row">
+        <input id="code-input" maxlength="4" placeholder="部屋コード" autocomplete="off">
+        <button id="btn-join" class="btn-sub">参加する</button>
+      </div>
+    </div>
+    <p id="lobby-error" class="error"></p>
+    <div class="howto">
+      <h3>遊び方</h3>
+      <p>手札の寿司ネタをローマ字で打ち切るとアイテム発動!<br>
+      武器で攻撃・盾で防御・鏡で反射・薬で回復。<br>
+      速く打つほど効果アップ⚡ 皿は時間で流れるよ。<br>
+      HPを削り合って最後の1人になったら勝ち!</p>
+    </div>
+  </div>
+</section>
+
+<!-- 待機部屋 -->
+<section id="screen-room" class="screen hidden">
+  <div class="panel">
+    <h2>部屋コード: <span id="room-code" class="code"></span></h2>
+    <button id="btn-copy" class="btn-sub">🔗 招待リンクをコピー</button>
+    <p class="note">リンクを送れば、相手はなまえを入れるだけで参加できるよ</p>
+    <ul id="room-players"></ul>
+    <button id="btn-start" class="btn-main hidden">バトル開始!</button>
+    <p id="room-wait" class="note">ホストが開始するのを待ってるよ…</p>
+  </div>
+</section>
+
+<!-- ゲーム画面 -->
+<section id="screen-game" class="screen hidden">
+  <div id="players"></div>
+  <div id="game-mid">
+    <div id="battle-log"></div>
+    <div id="typing-area">
+      <div id="stamp" class="hidden">発動!</div>
+      <div id="typing-item">
+        <span id="t-icon"></span>
+        <span id="t-name"></span>
+        <span id="t-effect"></span>
+      </div>
+      <div id="typing-word">-</div>
+      <div id="typing-romaji"></div>
+      <div id="typing-tip">単語を打ち切った瞬間に発動 / 攻撃の相手はランダムに決まる</div>
+    </div>
+  </div>
+  <div id="hand-help">
+    <span class="step">選択いらず! 打ちたい札の単語を<b>そのまま打つ</b>と自動選択</span>
+    <span class="arrow">▶</span>
+    <span class="step">打ち切った瞬間に発動!</span>
+    <span class="arrow">▶</span>
+    <span class="step"><b>1</b>〜<b>3</b>キーで固定 / <b>Esc</b>で解除</span>
+  </div>
+  <div id="hand"></div>
+</section>
+
+<!-- カウントダウンオーバーレイ -->
+<div id="countdown" class="overlay hidden">
+  <span id="count-num"></span>
+</div>
+
+<!-- 結果オーバーレイ -->
+<div id="overlay-over" class="overlay hidden">
+  <div class="panel">
+    <h2 id="over-title"></h2>
+    <p id="over-sub"></p>
+    <button id="btn-restart" class="btn-main hidden">もう一戦!</button>
+    <p id="over-wait" class="note hidden">ホストの再戦待ち…</p>
+  </div>
+</div>
+
+<script src="romaji.js"></script>
+<script src="client.js"></script>
+</body>
+</html>
